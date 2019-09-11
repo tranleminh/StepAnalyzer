@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Please Enter Your ID"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/nbstep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/btn_daily"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Start Daily Tracker" />
+
+    <Button
+        android:id="@+id/btn_info"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Term of use" />
+
+    <!--Button
+        android:id="@+id/btn_6min"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Start 6 Minutes Test " /-->
+
+    <!--TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" /-->
+
+    <!--TextView
+        android:id="@+id/delta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" /-->
+
+    <!--Chronometer
+        android:id="@+id/clk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="visible"
+        tools:visibility="visible" /-->
+
+</LinearLayout>

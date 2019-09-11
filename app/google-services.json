@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "669422700338",
+    "firebase_url": "https://stepanalyzer-8eee3.firebaseio.com",
+    "project_id": "stepanalyzer-8eee3",
+    "storage_bucket": "stepanalyzer-8eee3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669422700338:android:692716f6199994f8",
+        "android_client_info": {
+          "package_name": "com.functionality.stepanalyzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669422700338-ih5s01qo20a1nril9e5ejafugd2oevs1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.functionality.stepanalyzer",
+            "certificate_hash": "fdace4caf14b1861f750664e16ed436c607bf630"
+          }
+        },
+        {
+          "client_id": "669422700338-pktldlljuu4073ubb3e5qb1g1hap4o16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB03ymUeZ_C4MhE6KxnM3GlnugqP0VKxlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669422700338-pktldlljuu4073ubb3e5qb1g1hap4o16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
