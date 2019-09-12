@@ -15,6 +15,7 @@ import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -54,6 +55,10 @@ public class DailyStepService extends Service implements SensorEventListener {
 
     /***Variables used for broadcast purpose, with an Intent and broadcast tag***/
     Intent intentBR;
+
+    /**WakeLock declared here to keep app working**/
+    PowerManager powerManager;
+    PowerManager.WakeLock wakeLock;
 
     /**
      * Create a .csv file and automatically upload it to the Firebase server
@@ -156,6 +161,10 @@ public class DailyStepService extends Service implements SensorEventListener {
     @Override
     public void onCreate() {
 
+        /**Wakelock instantiated**/
+        powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                "MyApp::MyWakelockTag");
         /***Sensor is instantiated here***/
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
@@ -184,6 +193,9 @@ public class DailyStepService extends Service implements SensorEventListener {
         Intent broadcastIntent = new Intent(this, AppCloseReceiver.class);
         sendBroadcast(broadcastIntent);
 
+        /**Release wakelock on destroy**/
+        wakeLock.release();
+
         /*****Unregister step sensor when Service destroyed*****/
         this.sensorManager.unregisterListener(this);
     }
@@ -203,6 +215,9 @@ public class DailyStepService extends Service implements SensorEventListener {
 
         /***Register the step sensor listener so it starts to count steps, featuring SENSOR_DELAY_NORMAL as sampling frequency and maximal report latency/delay set to 0***/
         this.sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL, ParametersCollection.ZERO_REPORT_LATENCY);
+
+        /**Acquire wakelock so it stays working even in Doze mode**/
+        wakeLock.acquire();
 
         /***Create notification channel here, for Foreground Service purpose***/
         String input = intent.getStringExtra("inputExtra");
